@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brand OS — Jorn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --night: #1C2B1E;
+  --moss: #2D4A31;
+  --mist: #8FA68E;
+  --ivory: #F2EDE4;
+  --amber: #C4935A;
+  --amber-light: #E8B87A;
+  --border: rgba(143,166,142,0.2);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--night);
+  color: var(--ivory);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  min-height: 100vh;
+  line-height: 1.7;
+}
+
+/* ── HEADER ───────────────────────────────── */
+.header {
+  padding: 60px 48px 48px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.header::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(196,147,90,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.header-meta {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 16px;
+}
+.header-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(42px, 6vw, 72px);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--ivory);
+  margin-bottom: 8px;
+}
+.header-sub {
+  font-size: 14px;
+  color: var(--mist);
+  font-weight: 300;
+}
+
+/* ── NAV ──────────────────────────────────── */
+.nav {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav::-webkit-scrollbar { display: none; }
+.nav-item {
+  padding: 14px 24px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mist);
+  cursor: pointer;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+.nav-item:hover { color: var(--ivory); }
+.nav-item.active {
+  color: var(--amber);
+  border-bottom-color: var(--amber);
+}
+
+/* ── MAIN ─────────────────────────────────── */
+.main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px;
+}
+
+.module { display: none; }
+.module.active { display: block; animation: fadeIn 0.3s ease; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── TYPOGRAPHY ───────────────────────────── */
+.section-label {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--ivory);
+  margin-bottom: 24px;
+}
+
+.body-text {
+  font-size: 16px;
+  color: var(--mist);
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+cite {
+  font-style: italic;
+  color: var(--amber-light);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05em;
+}
+
+/* ── CARDS ────────────────────────────────── */
+.card {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 28px 32px;
+  margin-bottom: 16px;
+  background: rgba(45, 74, 49, 0.15);
+  transition: border-color 0.2s;
+}
+.card:hover { border-color: rgba(196,147,90,0.3); }
+.card-label {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 12px;
+}
+.card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--ivory);
+  margin-bottom: 10px;
+}
+.card-body {
+  font-size: 14px;
+  color: var(--mist);
+  line-height: 1.75;
+}
+
+/* ── GOLDEN CIRCLE ────────────────────────── */
+.golden-circle {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2px;
+  margin: 32px 0;
+}
+.gc-item {
+  padding: 24px 32px;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  background: rgba(45, 74, 49, 0.2);
+  border-left: 2px solid transparent;
+  transition: all 0.2s;
+}
+.gc-item:hover { border-left-color: var(--amber); background: rgba(45,74,49,0.35); }
+.gc-label {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+  min-width: 48px;
+  padding-top: 2px;
+}
+.gc-text {
+  font-size: 15px;
+  color: var(--ivory);
+  line-height: 1.7;
+}
+
+/* ── FILTER ───────────────────────────────── */
+.filter-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 32px 0;
+}
+@media (max-width: 600px) { .filter-grid { grid-template-columns: 1fr; } }
+.filter-card {
+  padding: 28px;
+  border-radius: 4px;
+}
+.filter-well { background: rgba(45,74,49,0.25); border: 1px solid rgba(143,166,142,0.25); }
+.filter-not { background: rgba(80,40,40,0.2); border: 1px solid rgba(180,100,100,0.2); }
+.filter-label {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.filter-well .filter-label { color: #7DC47F; }
+.filter-not .filter-label { color: #C47D7D; }
+
+/* ── COLOR PALETTE ────────────────────────── */
+.palette {
+  display: flex;
+  gap: 12px;
+  margin: 32px 0;
+  flex-wrap: wrap;
+}
+.swatch {
+  flex: 1;
+  min-width: 100px;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.swatch:hover { transform: translateY(-4px); }
+.swatch-color {
+  height: 80px;
+  position: relative;
+}
+.swatch-info {
+  padding: 12px;
+  background: rgba(255,255,255,0.04);
+}
+.swatch-name {
+  font-size: 12px;
+  color: var(--ivory);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 2px;
+}
+.swatch-hex {
+  font-size: 11px;
+  color: var(--mist);
+  font-family: monospace;
+  display: block;
+  margin-bottom: 2px;
+}
+.swatch-role {
+  font-size: 10px;
+  color: var(--mist);
+  display: block;
+  opacity: 0.7;
+}
+
+/* ── TYPOGRAPHY DISPLAY ───────────────────── */
+.font-display {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 32px 0;
+}
+@media (max-width: 600px) { .font-display { grid-template-columns: 1fr; } }
+.font-card {
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+.font-sample-display {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--ivory);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+.font-sample-body {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--mist);
+  margin-bottom: 12px;
+}
+.font-meta {
+  font-size: 11px;
+  color: var(--amber);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ── SFEER TAGS ───────────────────────────── */
+.sfeer-grid { display: flex; gap: 16px; margin: 24px 0; flex-wrap: wrap; }
+.sfeer-tag {
+  padding: 8px 16px;
+  border-radius: 2px;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+.sfeer-do { background: rgba(45,74,49,0.4); color: #7DC47F; border: 1px solid rgba(125,196,127,0.25); }
+.sfeer-dont { background: rgba(80,40,40,0.3); color: #C47D7D; border: 1px solid rgba(196,125,125,0.25); text-decoration: line-through; opacity: 0.7; }
+
+/* ── TOON RULES ───────────────────────────── */
+.toon-card {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+.toon-rule {
+  padding: 16px 24px;
+  background: rgba(45,74,49,0.2);
+  font-size: 13px;
+  color: var(--amber);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid var(--border);
+}
+.toon-examples {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+@media (max-width: 600px) { .toon-examples { grid-template-columns: 1fr; } }
+.toon-ex {
+  padding: 16px 24px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.toon-ex-wel { color: var(--mist); border-right: 1px solid var(--border); }
+.toon-ex-niet { color: var(--mist); opacity: 0.5; }
+.toon-ex-label {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.toon-ex-wel .toon-ex-label { color: #7DC47F; }
+.toon-ex-niet .toon-ex-label { color: #C47D7D; }
+
+/* ── BLUEPRINT ────────────────────────────── */
+.blueprint-section {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+.bp-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: rgba(45,74,49,0.2);
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  transition: background 0.2s;
+}
+.bp-head:hover { background: rgba(45,74,49,0.35); }
+.bp-head.open { border-bottom-color: var(--border); }
+.bp-name { font-size: 13px; font-weight: 500; color: var(--ivory); }
+.bp-doel { font-size: 12px; color: var(--mist); }
+.bp-toggle { color: var(--amber); font-size: 18px; transition: transform 0.2s; }
+.bp-head.open .bp-toggle { transform: rotate(180deg); }
+.bp-body {
+  padding: 24px;
+  display: none;
+}
+.bp-body.open { display: block; }
+.bp-field { margin-bottom: 16px; }
+.bp-field:last-child { margin-bottom: 0; }
+.bp-field-label {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 6px;
+}
+.bp-field-value {
+  font-size: 14px;
+  color: var(--ivory);
+  line-height: 1.6;
+}
+.bp-field-value.headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 300;
+}
+.bp-cta {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 8px 20px;
+  background: transparent;
+  border: 1px solid var(--amber);
+  color: var(--amber);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+
+/* ── TAGLINES ─────────────────────────────── */
+.tagline-grid { margin: 32px 0; }
+.tagline-item {
+  padding: 20px 28px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+.tagline-item:hover { border-color: rgba(196,147,90,0.4); background: rgba(45,74,49,0.15); }
+.tagline-item.recommended { border-color: var(--amber); background: rgba(196,147,90,0.07); }
+.tagline-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--ivory);
+  flex: 1;
+  line-height: 1.3;
+}
+.tagline-why {
+  font-size: 12px;
+  color: var(--mist);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+.tagline-badge {
+  font-size: 10px;
+  padding: 3px 8px;
+  background: var(--amber);
+  color: var(--night);
+  border-radius: 2px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 500;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+/* ── GAP ──────────────────────────────────── */
+.gap-card {
+  border: 1px solid rgba(196,147,90,0.4);
+  border-radius: 4px;
+  padding: 36px;
+  text-align: center;
+  background: rgba(196,147,90,0.05);
+  margin-top: 40px;
+}
+.gap-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--ivory);
+  margin-bottom: 16px;
+}
+.gap-text {
+  font-size: 14px;
+  color: var(--mist);
+  max-width: 480px;
+  margin: 0 auto 28px;
+  line-height: 1.8;
+}
+.gap-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  background: var(--amber);
+  color: var(--night);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: 2px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.gap-btn:hover { background: var(--amber-light); }
+
+/* ── FOOTER ───────────────────────────────── */
+.footer {
+  padding: 32px 48px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-brand {
+  font-size: 12px;
+  color: var(--mist);
+  letter-spacing: 0.08em;
+}
+.footer-brand span { color: var(--amber); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <p class="header-meta">S4J4 · Signal Architecture · Brand OS</p>
+  <h1 class="header-name">Jorn</h1>
+  <p class="header-sub">Run Club Tokyo · Gegenereerd op basis van je Inner Signal Audio</p>
+</div>
+
+<nav class="nav">
+  <div class="nav-item active" onclick="showModule('spiegel', this)">Identiteit</div>
+  <div class="nav-item" onclick="showModule('kern', this)">Resonantie-kern</div>
+  <div class="nav-item" onclick="showModule('filter', this)">Filter</div>
+  <div class="nav-item" onclick="showModule('brandbook', this)">Brand Book</div>
+  <div class="nav-item" onclick="showModule('toon', this)">Toon</div>
+  <div class="nav-item" onclick="showModule('blueprint', this)">Website</div>
+  <div class="nav-item" onclick="showModule('tagline', this)">Taglines</div>
+</nav>
+
+<main class="main">
+
+  <!-- MODULE 1: IDENTITEITS-SPIEGEL -->
+  <div class="module active" id="mod-spiegel">
+    <div class="section-label">Module 01 — Identiteits-spiegel</div>
+    <h2>Wie jij bent<br>als je niet oplet.</h2>
+    <p class="body-text">
+      Jij bent iemand die midden in een volle wereld een plek heeft gebouwd waar stilte niet afwezig is maar aanwezig. Je startte in Yoyogi Park met zes mensen en nu zijn er veertig — niet omdat je adverteerde, maar omdat <cite>"mensen mensen meenemen."</cite>
+      <br><br>
+      Jij praat nooit over pace. Als iemand dat doet, stel je een andere vraag: hoe voelde het? Dat is niet een trucje, dat is een overtuiging. Je gelooft dat de meeste fitnesscultuur gebroken is omdat ze mensen laat geloven dat hun lichaam een probleem is. Jij doet het tegenovergestelde.
+      <br><br>
+      Elke zondagochtend maak je na de run samen ontbijt in het park — niet als teambuilding, maar omdat dat <cite>"misschien wel het mooiste is wat ik doe."</cite> Je bent niet op zoek naar snelle lopers. Je zoekt mensen die ergens tussen wakker worden en in slaap vallen hebben geleerd dat aanwezig zijn genoeg is.
+    </p>
+  </div>
+
+  <!-- MODULE 2: RESONANTIE-KERN -->
+  <div class="module" id="mod-kern">
+    <div class="section-label">Module 02 — Golden Circle</div>
+    <h2>Waarom je dit doet.<br>Hoe je het doet.<br>Wat je levert.</h2>
+    <div class="golden-circle">
+      <div class="gc-item">
+        <span class="gc-label">Why</span>
+        <p class="gc-text"><cite>"Hardlopen heeft mij letterlijk teruggebracht. Niet als sport, maar als ritueel. Als de enige tijd in de dag waarop ik echt aanwezig was."</cite> Jorn bouwt wat hem gered heeft — niet als therapie, maar als infrastructuur voor anderen die hetzelfde nodig hebben zonder het te weten.</p>
+      </div>
+      <div class="gc-item">
+        <span class="gc-label">How</span>
+        <p class="gc-text">Door nooit te praten over prestatie. Geen PRs, geen pace, geen voor-en-na's. Alleen de vraag: hoe voelde het? Bewegen als iets om mee samen te werken, niet tegen te vechten.</p>
+      </div>
+      <div class="gc-item">
+        <span class="gc-label">What</span>
+        <p class="gc-text">Een wekelijkse bewegingspraktijk in Tokyo — run club, recovery-content, gezamenlijk ontbijt — voor mensen die hun lichaam willen bewonen in plaats van verbeteren.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 3: FILTER -->
+  <div class="module" id="mod-filter">
+    <div class="section-label">Module 03 — The Filter</div>
+    <h2>Wie je aantrekt.<br>Wie je laat gaan.</h2>
+    <div class="filter-grid">
+      <div class="filter-card filter-well">
+        <p class="filter-label">Wel voor</p>
+        <p class="body-text" style="font-size:14px;">Voor mensen tussen de 28 en 45 die midden in een leven zitten dat goed lijkt van buiten maar innerlijk wringt. Die hardlopen altijd hebben gezien als iets voor anderen — de slanken, de snellen. Die zoeken naar een plek om zichzelf te zijn zonder te presteren. Die een maandag zonder hoofdpijn belangrijker vinden dan een snellere 5K.</p>
+      </div>
+      <div class="filter-card filter-not">
+        <p class="filter-label">Niet voor</p>
+        <p class="body-text" style="font-size:14px;">Niet voor mensen die komen voor een PR. Niet voor degenen die het eerste gesprek beginnen over hun pace of hun vorige club. Niet voor Instagram-atleten op zoek naar content-materiaal. Niet voor mensen die bewegen zien als straf voor eten.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 4: BRAND BOOK -->
+  <div class="module" id="mod-brandbook">
+    <div class="section-label">Module 04 — Brand Book Lite</div>
+    <h2>Kleur. Type. Sfeer.</h2>
+
+    <div class="palette">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#1C2B1E;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Nachtelijk bos</span>
+          <span class="swatch-hex">#1C2B1E</span>
+          <span class="swatch-role">Primair</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#2D4A31;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Donker mos</span>
+          <span class="swatch-hex">#2D4A31</span>
+          <span class="swatch-role">Secundair</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#8FA68E;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Ochtendmist</span>
+          <span class="swatch-hex">#8FA68E</span>
+          <span class="swatch-role">Tertiair</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#F2EDE4;"></div>
+        <div class="swatch-info" style="background:rgba(0,0,0,0.3);">
+          <span class="swatch-name">Warm ivoor</span>
+          <span class="swatch-hex">#F2EDE4</span>
+          <span class="swatch-role">Licht</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#C4935A;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Zacht amber</span>
+          <span class="swatch-hex">#C4935A</span>
+          <span class="swatch-role">Accent</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="font-display">
+      <div class="font-card">
+        <div class="font-sample-display">Cormorant<br>Garamond</div>
+        <p class="font-meta">Koppen — ernst en warmte</p>
+        <p class="card-body" style="margin-top:10px;font-size:13px;">Voor de ernst en warmte van vroeg-ochtend stilte. Brengt het gevoel van een doorleefd ritueel.</p>
+      </div>
+      <div class="font-card">
+        <div class="font-sample-body">DM Sans<br>voor leestekst</div>
+        <p class="font-meta">Body — helder en menselijk</p>
+        <p class="card-body" style="margin-top:10px;font-size:13px;">Houdt het menselijk en leesbaar zonder tech-gevoel. Samen als een notitieboek van iemand die veel nagedacht heeft.</p>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-top:32px;">Sfeerwoorden</div>
+    <div class="sfeer-grid">
+      <span class="sfeer-tag sfeer-do">Doorleefd</span>
+      <span class="sfeer-tag sfeer-do">Aardend</span>
+      <span class="sfeer-tag sfeer-do">Uitnodigend</span>
+      <span class="sfeer-tag sfeer-dont">High-performance</span>
+      <span class="sfeer-tag sfeer-dont">Motiverend</span>
+      <span class="sfeer-tag sfeer-dont">Transformatief</span>
+    </div>
+  </div>
+
+  <!-- MODULE 5: VERBALE TOON -->
+  <div class="module" id="mod-toon">
+    <div class="section-label">Module 05 — Verbale Toon</div>
+    <h2>Hoe je schrijft.<br>Hoe je klinkt.</h2>
+
+    <div class="toon-card">
+      <div class="toon-rule">Schrijf over gevoel, niet over resultaat</div>
+      <div class="toon-examples">
+        <div class="toon-ex toon-ex-wel">
+          <p class="toon-ex-label">Wel</p>
+          <p>Hoe voelde de eerste kilometer voor je?</p>
+        </div>
+        <div class="toon-ex toon-ex-niet">
+          <p class="toon-ex-label">Niet</p>
+          <p>Verbeter je 5K-tijd in 8 weken.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="toon-card">
+      <div class="toon-rule">Gebruik concrete details — tijden, plaatsen, mensen</div>
+      <div class="toon-examples">
+        <div class="toon-ex toon-ex-wel">
+          <p class="toon-ex-label">Wel</p>
+          <p>Elke zondag om 7 uur in Yoyogi Park, daarna samen ontbijt.</p>
+        </div>
+        <div class="toon-ex toon-ex-niet">
+          <p class="toon-ex-label">Niet</p>
+          <p>Wij creëren een hechte gemeenschap rondom beweging en verbinding.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="toon-card">
+      <div class="toon-rule">Spreek de twijfelaar aan, niet de overtuigde</div>
+      <div class="toon-examples">
+        <div class="toon-ex toon-ex-wel">
+          <p class="toon-ex-label">Wel</p>
+          <p>Als je altijd dacht dat hardlopen niet voor jou is — dat klopt misschien. Maar kom één keer.</p>
+        </div>
+        <div class="toon-ex toon-ex-niet">
+          <p class="toon-ex-label">Niet</p>
+          <p>Voor iedereen die van hardlopen houdt!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 6: WEBSITE BLUEPRINT -->
+  <div class="module" id="mod-blueprint">
+    <div class="section-label">Module 06 — Website Blueprint</div>
+    <h2>Vier secties.<br>Klaar om te bouwen.</h2>
+    <p class="body-text" style="margin-bottom:32px;">Primair doel: community laten groeien. Alle copy is klaar voor directe import in Framer.</p>
+
+    <div class="blueprint-section">
+      <div class="bp-head" onclick="toggleBP(this)">
+        <div><div class="bp-name">Hero</div><div class="bp-doel">Herkenning in de eerste vijf seconden</div></div>
+        <span class="bp-toggle">›</span>
+      </div>
+      <div class="bp-body">
+        <div class="bp-field"><div class="bp-field-label">Headline</div><div class="bp-field-value headline">Jouw lichaam is geen project.</div></div>
+        <div class="bp-field"><div class="bp-field-label">Subkop</div><div class="bp-field-value">Een hardloopclub in Tokyo voor mensen die willen bewegen zonder te presteren.</div></div>
+        <div class="bp-field"><div class="bp-field-label">CTA</div><span class="bp-cta">Kom één keer mee</span></div>
+      </div>
+    </div>
+
+    <div class="blueprint-section">
+      <div class="bp-head" onclick="toggleBP(this)">
+        <div><div class="bp-name">Over de club</div><div class="bp-doel">Wat dit anders maakt</div></div>
+        <span class="bp-toggle">›</span>
+      </div>
+      <div class="bp-body">
+        <div class="bp-field"><div class="bp-field-label">Headline</div><div class="bp-field-value headline">We praten nooit over pace.</div></div>
+        <div class="bp-field"><div class="bp-field-label">Subkop</div><div class="bp-field-value">Elke zondag 7 uur, Yoyogi Park. Daarna ontbijt.</div></div>
+        <div class="bp-field"><div class="bp-field-label">Body</div><div class="bp-field-value">We zijn begonnen met zes mensen. Nu zijn we met veertig. Niemand heeft geadverteerd. Mensen namen mensen mee. De enige vraag die we na een run stellen: hoe voelde het?</div></div>
+        <div class="bp-field"><div class="bp-field-label">CTA</div><span class="bp-cta">Lees hoe het werkt</span></div>
+      </div>
+    </div>
+
+    <div class="blueprint-section">
+      <div class="bp-head" onclick="toggleBP(this)">
+        <div><div class="bp-name">Voor wie</div><div class="bp-doel">De juiste mensen herkennen</div></div>
+        <span class="bp-toggle">›</span>
+      </div>
+      <div class="bp-body">
+        <div class="bp-field"><div class="bp-field-label">Headline</div><div class="bp-field-value headline">Niet voor de snellen.</div></div>
+        <div class="bp-field"><div class="bp-field-label">Subkop</div><div class="bp-field-value">Wel voor wie zijn lichaam wil bewonen in plaats van verbeteren.</div></div>
+        <div class="bp-field"><div class="bp-field-label">Body</div><div class="bp-field-value">Als je hier bent omdat je denkt dat hardlopen iets is voor anderen — welkom. Achterin lopen is ook lopen. Een maandag zonder hoofdpijn is een goed begin.</div></div>
+        <div class="bp-field"><div class="bp-field-label">CTA</div><span class="bp-cta">Kom kennismaken</span></div>
+      </div>
+    </div>
+
+    <div class="blueprint-section">
+      <div class="bp-head" onclick="toggleBP(this)">
+        <div><div class="bp-name">Aanmelden</div><div class="bp-doel">Lage drempel eerste contact</div></div>
+        <span class="bp-toggle">›</span>
+      </div>
+      <div class="bp-body">
+        <div class="bp-field"><div class="bp-field-label">Headline</div><div class="bp-field-value headline">Kom één keer mee.</div></div>
+        <div class="bp-field"><div class="bp-field-label">Subkop</div><div class="bp-field-value">Geen inschrijving, geen verplichtingen. Gewoon komen.</div></div>
+        <div class="bp-field"><div class="bp-field-label">CTA</div><span class="bp-cta">Stuur me een bericht</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 7: TAGLINES -->
+  <div class="module" id="mod-tagline">
+    <div class="section-label">Module 07 — Tagline Lab</div>
+    <h2>Vijf manieren om te zeggen<br>wie je bent.</h2>
+
+    <div class="tagline-grid">
+      <div class="tagline-item recommended">
+        <div style="flex:1">
+          <div class="tagline-text">Jouw lichaam is geen project.</div>
+          <div class="tagline-why">Direct zijn eigen woorden — radicaal eerlijk en onderscheidend van elke fitnessclub. Filtert én nodigt uit in vier woorden.</div>
+        </div>
+        <span class="tagline-badge">Aanbevolen</span>
+      </div>
+      <div class="tagline-item">
+        <div style="flex:1">
+          <div class="tagline-text">Een plek om te wonen in je lichaam.</div>
+          <div class="tagline-why">Vertaalt zijn kernovertuiging naar een uitnodiging zonder prestatie-taal.</div>
+        </div>
+      </div>
+      <div class="tagline-item">
+        <div style="flex:1">
+          <div class="tagline-text">We praten nooit over pace.</div>
+          <div class="tagline-why">Concreet en memorabel — iedereen begrijpt direct wat dit uitsluit én uitnodigt.</div>
+        </div>
+      </div>
+      <div class="tagline-item">
+        <div style="flex:1">
+          <div class="tagline-text">Bewegen zonder te verdienen.</div>
+          <div class="tagline-why">Raakt het diepe inzicht dat beweging geen beloning hoeft te zijn.</div>
+        </div>
+      </div>
+      <div class="tagline-item">
+        <div style="flex:1">
+          <div class="tagline-text">Veertig mensen. Nul advertenties.</div>
+          <div class="tagline-why">Bewijst de kwaliteit via het bewijs zelf — social proof als tagline.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gap-card">
+      <h3 class="gap-title">Je hebt je Blueprint.</h3>
+      <p class="gap-text">Je identiteit staat. Je weet wie je bent, voor wie je het doet, en hoe je klinkt. De vraag is nu: bouw je de site zelf, of wil je dat het resultaat écht de energie van deze Blueprint evenaart?</p>
+      <a class="gap-btn" href="#">Boek de Signal Sprint — €697</a>
+    </div>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <span class="footer-brand"><span>S4J4</span> · Signal Architecture</span>
+  <span class="footer-brand">Brand OS v1.0 · Jorn · 2025</span>
+</footer>
+
+<script>
+function showModule(id, el) {
+  document.querySelectorAll('.module').forEach(m => m.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('mod-' + id).classList.add('active');
+  el.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleBP(head) {
+  const body = head.nextElementSibling;
+  const isOpen = head.classList.contains('open');
+  document.querySelectorAll('.bp-head').forEach(h => {
+    h.classList.remove('open');
+    h.nextElementSibling.classList.remove('open');
+  });
+  if (!isOpen) {
+    head.classList.add('open');
+    body.classList.add('open');
+  }
+}
+</script>
+</body>
+</html>
