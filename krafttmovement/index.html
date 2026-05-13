@@ -1408,6 +1408,30 @@ Note: Collect from first 3 trial clients. These questions will pull exactly the 
   const inputs = document.querySelectorAll('.pin-digit');
   const errorEl = document.getElementById('pin-error');
 
+  // Defined early so auto-unlock param block can call it
+  function checkCode() {
+    const entered = Array.from(inputs).map(function(i) { return i.value; }).join('');
+    if (entered.length < 6) return;
+    if (entered === ACCESS_CODE || entered === MASTER_CODE) {
+      unlock();
+    } else if (entered.length === 6) {
+      errorEl.textContent = 'Incorrect code. Please try again.';
+      inputs.forEach(function(i) { i.value = ''; });
+      inputs[0].focus();
+      setTimeout(function() { errorEl.textContent = '\u00a0'; }, 3000);
+    }
+  }
+
+  // Auto-unlock from URL query param ?code=XXXXXX
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramCode = urlParams.get('code');
+  if (paramCode && paramCode.length === 6) {
+    paramCode.split('').forEach(function(ch, i) {
+      if (inputs[i]) inputs[i].value = ch;
+    });
+    checkCode();
+  }
+
   inputs.forEach(function(input, i) {
     input.addEventListener('input', function(e) {
       const val = e.target.value.replace(/\D/g, '');
@@ -1433,19 +1457,6 @@ Note: Collect from first 3 trial clients. These questions will pull exactly the 
       }
     });
   });
-
-  function checkCode() {
-    const entered = Array.from(inputs).map(function(i) { return i.value; }).join('');
-    if (entered.length < 6) return;
-    if (entered === ACCESS_CODE || entered === MASTER_CODE) {
-      unlock();
-    } else if (entered.length === 6) {
-      errorEl.textContent = 'Incorrect code. Please try again.';
-      inputs.forEach(function(i) { i.value = ''; });
-      inputs[0].focus();
-      setTimeout(function() { errorEl.textContent = '\u00a0'; }, 3000);
-    }
-  }
 
   function unlock() {
     const lockScreen = document.getElementById('lock-screen');
