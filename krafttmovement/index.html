@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Brand OS — KRAFTT Movement · S4J4</title>
+<title>Resonance.OS — KRAFTT Movement · S4J4</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +41,6 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ── PASSWORD SCREEN ── */
   #lock-screen {
     position: fixed; inset: 0; z-index: 9999;
     background: var(--bg);
@@ -55,90 +54,55 @@
 
   .lock-logo {
     font-family: var(--font-heading);
-    font-size: 13px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 3rem;
+    font-size: 13px; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--text-muted); margin-bottom: 3rem;
   }
 
   .lock-title {
     font-family: var(--font-heading);
     font-size: clamp(1.8rem, 4vw, 2.8rem);
-    font-weight: 300;
-    color: var(--text-primary);
-    text-align: center;
-    line-height: 1.2;
-    margin-bottom: 0.5rem;
+    font-weight: 300; color: var(--text-primary);
+    text-align: center; line-height: 1.2; margin-bottom: 0.5rem;
   }
 
-  .lock-sub {
-    color: var(--text-muted);
-    font-size: 14px;
-    text-align: center;
-    margin-bottom: 2.5rem;
-  }
+  .lock-sub { color: var(--text-muted); font-size: 14px; text-align: center; margin-bottom: 2.5rem; }
 
   .pin-container { display: flex; gap: 10px; margin-bottom: 1.5rem; }
 
   .pin-digit {
     width: 48px; height: 58px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    color: var(--text-primary);
-    text-align: center;
-    outline: none;
-    transition: border-color 0.2s;
-    caret-color: var(--text-accent);
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); font-family: var(--font-heading);
+    font-size: 1.5rem; color: var(--text-primary);
+    text-align: center; outline: none;
+    transition: border-color 0.2s; caret-color: var(--text-accent);
   }
 
   .pin-digit:focus { border-color: var(--text-accent); }
 
-  .pin-error {
-    color: #c0392b;
-    font-size: 13px;
-    text-align: center;
-    height: 20px;
-    transition: opacity 0.2s;
-  }
+  .pin-error { color: #c0392b; font-size: 13px; text-align: center; height: 20px; transition: opacity 0.2s; }
 
   .lock-hint { font-size: 12px; color: var(--text-muted); margin-top: 2rem; }
 
-  /* ── VAULT ── */
   #vault { display: none; min-height: 100vh; }
   #vault.visible { display: block; }
 
-  /* ── STICKY HEADER ── */
   .site-header {
     position: sticky; top: 0; z-index: 100;
     background: color-mix(in srgb, var(--bg) 94%, transparent);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border);
   }
 
   .topbar {
     padding: 0 2rem;
     display: flex; align-items: center; justify-content: space-between;
-    height: 48px;
-    border-bottom: 1px solid var(--border);
+    height: 48px; border-bottom: 1px solid var(--border);
   }
 
-  .topbar-brand {
-    font-family: var(--font-heading);
-    font-size: 11px; letter-spacing: 0.25em;
-    text-transform: uppercase; color: var(--text-muted);
-  }
+  .topbar-brand { font-family: var(--font-heading); font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-muted); }
+  .topbar-name  { font-family: var(--font-heading); font-size: 13px; color: var(--text-accent); }
 
-  .topbar-name {
-    font-family: var(--font-heading);
-    font-size: 13px; color: var(--text-accent);
-  }
-
-  /* ── HERO ── */
   .hero {
     min-height: 92vh;
     display: flex; flex-direction: column;
@@ -149,637 +113,197 @@
   }
 
   .hero::before {
-    content: '';
-    position: absolute;
-    width: 700px; height: 700px;
+    content: ''; position: absolute; width: 700px; height: 700px;
     background: radial-gradient(circle, color-mix(in srgb, var(--c2) 12%, transparent) 0%, transparent 65%);
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
+    top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none;
   }
 
   .hero::after {
-    content: '';
-    position: absolute;
-    width: 400px; height: 400px;
+    content: ''; position: absolute; width: 400px; height: 400px;
     background: radial-gradient(circle, color-mix(in srgb, var(--c5) 6%, transparent) 0%, transparent 70%);
-    top: 30%; right: 10%;
-    pointer-events: none;
+    top: 30%; right: 10%; pointer-events: none;
   }
 
-  .hero-label {
-    font-size: 11px; letter-spacing: 0.35em;
-    text-transform: uppercase; color: var(--text-accent);
-    margin-bottom: 1.5rem;
-    opacity: 0; animation: fade-up 0.8s 0.2s forwards;
-    position: relative; z-index: 1;
-  }
-
-  .hero-name {
-    font-size: 12px; font-weight: 400; letter-spacing: 0.3em;
-    text-transform: uppercase; color: var(--text-accent);
-    margin-bottom: 1.25rem;
-    opacity: 0; animation: fade-up 0.8s 0.4s forwards;
-    position: relative; z-index: 1;
-  }
+  .hero-label { font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--text-accent); margin-bottom: 1.5rem; opacity: 0; animation: fade-up 0.8s 0.2s forwards; position: relative; z-index: 1; }
+  .hero-name  { font-size: 12px; font-weight: 400; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-accent); margin-bottom: 1.25rem; opacity: 0; animation: fade-up 0.8s 0.4s forwards; position: relative; z-index: 1; }
 
   .hero-tagline {
     font-family: var(--font-heading);
     font-size: clamp(2rem, 5vw, 4rem);
     font-weight: 300; font-style: italic;
-    color: var(--text-primary);
-    max-width: 700px; margin: 0 auto 2.5rem;
-    line-height: 1.15;
-    opacity: 0; animation: fade-up 0.8s 0.6s forwards;
-    position: relative; z-index: 1;
+    color: var(--text-primary); max-width: 700px; margin: 0 auto 2.5rem;
+    line-height: 1.15; opacity: 0; animation: fade-up 0.8s 0.6s forwards; position: relative; z-index: 1;
   }
 
-  .hero-meta {
-    display: flex; gap: 2rem;
-    font-size: 12px; letter-spacing: 0.15em;
-    text-transform: uppercase; color: var(--text-muted);
-    opacity: 0; animation: fade-up 0.8s 0.8s forwards;
-    position: relative; z-index: 1;
-  }
-
+  .hero-meta { display: flex; gap: 2rem; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); opacity: 0; animation: fade-up 0.8s 0.8s forwards; position: relative; z-index: 1; }
   .hero-meta span { display: flex; align-items: center; gap: 6px; }
   .hero-meta span::before { content: '·'; color: var(--text-accent); }
 
-  /* ── NAV ── */
-  .module-nav {
-    display: flex; align-items: center; gap: 0;
-    overflow-x: auto; scrollbar-width: none;
-    scroll-behavior: smooth; padding: 0 50%;
-    position: relative;
-  }
-
+  .module-nav { display: flex; align-items: center; gap: 0; overflow-x: auto; scrollbar-width: none; scroll-behavior: smooth; padding: 0 50%; position: relative; }
   .module-nav::-webkit-scrollbar { display: none; }
 
-  .nav-item {
-    font-size: 12px; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--text-muted);
-    padding: 13px 1.1rem; cursor: pointer;
-    border-bottom: 2px solid transparent; white-space: nowrap;
-    text-decoration: none; display: block; flex-shrink: 0;
-    opacity: 0.5; transform: scale(0.92);
-    transition: opacity 0.35s ease, transform 0.35s ease, color 0.25s ease, border-color 0.25s ease;
-  }
-
+  .nav-item { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); padding: 13px 1.1rem; cursor: pointer; border-bottom: 2px solid transparent; white-space: nowrap; text-decoration: none; display: block; flex-shrink: 0; opacity: 0.5; transform: scale(0.92); transition: opacity 0.35s ease, transform 0.35s ease, color 0.25s ease, border-color 0.25s ease; }
   .nav-item:hover { opacity: 0.75; color: var(--text-primary); }
+  .nav-item.active { opacity: 1; transform: scale(1); color: var(--text-primary); border-bottom-color: var(--text-accent); }
 
-  .nav-item.active {
-    opacity: 1; transform: scale(1);
-    color: var(--text-primary);
-    border-bottom-color: var(--text-accent);
-  }
+  .modules-wrapper { max-width: 860px; margin: 0 auto; padding: 4rem 2rem 6rem; }
 
-  /* ── MODULES ── */
-  .modules-wrapper {
-    max-width: 860px; margin: 0 auto;
-    padding: 4rem 2rem 6rem;
-  }
-
-  .module-section {
-    margin-bottom: 5rem;
-    opacity: 0; transform: translateY(24px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-    scroll-margin-top: 100px;
-  }
-
+  .module-section { margin-bottom: 5rem; opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; scroll-margin-top: 100px; }
   .module-section.in-view { opacity: 1; transform: translateY(0); }
 
-  .module-label {
-    font-size: 10px; letter-spacing: 0.4em;
-    text-transform: uppercase; color: var(--text-accent);
-    margin-bottom: 1.5rem;
-    display: flex; align-items: center; gap: 1rem;
-  }
+  .module-label { font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--text-accent); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+  .module-label::after { content: ''; flex: 1; height: 1px; background: var(--border); max-width: 80px; }
 
-  .module-label::after {
-    content: ''; flex: 1; height: 1px;
-    background: var(--border); max-width: 80px;
-  }
+  .module-title { font-family: var(--font-heading); font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 300; line-height: 1.15; color: var(--text-primary); margin-bottom: 2rem; }
 
-  .module-title {
-    font-family: var(--font-heading);
-    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-    font-weight: 300; line-height: 1.15;
-    color: var(--text-primary); margin-bottom: 2rem;
-  }
-
-  /* ── MODULE 1: IDENTITEITS-SPIEGEL ── */
-  .mirror-block {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 2.5rem 2.5rem 2.5rem 3.5rem;
-    font-size: 1.05rem; line-height: 1.9;
-    color: var(--text-primary); position: relative;
-  }
-
-  .mirror-block::before {
-    content: '\201C';
-    font-family: var(--font-heading);
-    font-size: 6rem; line-height: 0;
-    color: var(--c2); opacity: 0.35;
-    position: absolute; top: 2.5rem; left: 1.75rem;
-  }
-
+  .mirror-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2.5rem 2.5rem 2.5rem 3.5rem; font-size: 1.05rem; line-height: 1.9; color: var(--text-primary); position: relative; }
+  .mirror-block::before { content: '\201C'; font-family: var(--font-heading); font-size: 6rem; line-height: 0; color: var(--c2); opacity: 0.35; position: absolute; top: 2.5rem; left: 1.75rem; }
   .mirror-block .citaat { color: var(--c2); font-style: italic; }
 
-  /* ── MODULE 2: RESONANTIE-KERN ── */
-  .golden-circle {
-    display: grid; grid-template-columns: 1fr 1fr 1fr;
-    gap: 1px; background: var(--border);
-    border-radius: var(--radius-lg); overflow: hidden;
-    border: 1px solid var(--border);
-  }
-
+  .golden-circle { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border); }
   .gc-item { background: var(--surface); padding: 2rem 1.5rem; position: relative; }
   .gc-item:hover { background: var(--surface-2); }
-
-  .gc-num {
-    font-size: 10px; letter-spacing: 0.3em;
-    text-transform: uppercase; color: var(--text-accent); margin-bottom: 0.75rem;
-  }
-
-  .gc-heading {
-    font-family: var(--font-heading);
-    font-size: 1.2rem; margin-bottom: 1rem;
-    color: var(--text-primary); font-weight: 300;
-  }
-
+  .gc-num { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-accent); margin-bottom: 0.75rem; }
+  .gc-heading { font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 1rem; color: var(--text-primary); font-weight: 300; }
   .gc-text { font-size: 14px; color: var(--text-muted); line-height: 1.75; }
 
-  /* ── MODULE 3: FILTER ── */
   .filter-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-
-  .filter-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg); padding: 2rem;
-  }
-
+  .filter-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; }
   .filter-card.yes { border-left: 3px solid var(--c5); }
   .filter-card.no  { border-left: 3px solid color-mix(in srgb, var(--text-muted) 40%, transparent); }
-
-  .filter-card-label {
-    font-size: 10px; letter-spacing: 0.3em;
-    text-transform: uppercase; margin-bottom: 1rem;
-  }
-
+  .filter-card-label { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 1rem; }
   .filter-card.yes .filter-card-label { color: var(--text-accent); }
   .filter-card.no  .filter-card-label { color: var(--text-muted); }
   .filter-card p { font-size: 14px; color: var(--text-muted); line-height: 1.75; }
 
-  /* ── MODULE 4: BRAND BOOK ── */
   .brand-book-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-
-  .bb-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg); padding: 2rem;
-  }
-
-  .bb-card-title {
-    font-size: 10px; letter-spacing: 0.3em;
-    text-transform: uppercase; color: var(--text-accent); margin-bottom: 1.25rem;
-  }
-
+  .bb-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; }
+  .bb-card-title { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-accent); margin-bottom: 1.25rem; }
   .color-swatches { display: flex; gap: 8px; margin-bottom: 1rem; }
-
-  .swatch {
-    width: 44px; height: 44px; border-radius: var(--radius);
-    border: 1px solid rgba(0,0,0,0.08);
-    position: relative; cursor: default; flex-shrink: 0;
-    transition: transform 0.15s;
-  }
+  .swatch { width: 44px; height: 44px; border-radius: var(--radius); border: 1px solid rgba(0,0,0,0.08); position: relative; cursor: default; flex-shrink: 0; transition: transform 0.15s; }
   .swatch:hover { transform: scale(1.1); }
-
   .swatch-info { margin-top: 0.75rem; display: flex; flex-direction: column; gap: 4px; }
-
   .swatch-row { display: flex; align-items: center; gap: 8px; font-size: 12px; }
-
   .swatch-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
   .swatch-name { color: var(--text-primary); }
   .swatch-hex  { color: var(--text-muted); font-size: 11px; }
-  .swatch-rol  {
-    margin-left: auto; color: var(--text-accent);
-    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
-  }
-
+  .swatch-rol  { margin-left: auto; color: var(--text-accent); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; }
   .font-pair { display: flex; flex-direction: column; gap: 1rem; }
-
   .font-demo { border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
-
   .font-demo-label { font-size: 11px; color: var(--text-muted); margin-bottom: 4px; }
-  .font-demo-name  { font-size: 14px; color: var(--text-primary); }
-
-  .font-demo-sample-heading {
-    font-family: var(--font-heading);
-    font-size: 2rem; color: var(--text-primary);
-    line-height: 1; margin-top: 4px; font-weight: 300; font-style: italic;
-  }
-
-  .font-demo-sample-body {
-    font-family: var(--font-body);
-    font-size: 14px; color: var(--text-muted);
-    margin-top: 4px; line-height: 1.6;
-  }
-
+  .font-demo-sample-heading { font-family: var(--font-heading); font-size: 2rem; color: var(--text-primary); line-height: 1; margin-top: 4px; font-weight: 300; font-style: italic; }
+  .font-demo-sample-body { font-family: var(--font-body); font-size: 14px; color: var(--text-muted); margin-top: 4px; line-height: 1.6; }
   .sfeer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-
-  .sfeer-group-label {
-    font-size: 11px; color: var(--text-muted); margin-bottom: 0.5rem;
-    text-transform: uppercase; letter-spacing: 0.2em;
-  }
-
+  .sfeer-group-label { font-size: 11px; color: var(--text-muted); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.2em; }
   .sfeer-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-
   .sfeer-tag { font-size: 12px; padding: 4px 10px; border-radius: 20px; letter-spacing: 0.05em; }
+  .sfeer-tag.do   { background: color-mix(in srgb, var(--c5) 12%, transparent); color: var(--c5); border: 1px solid color-mix(in srgb, var(--c5) 28%, transparent); }
+  .sfeer-tag.dont { background: var(--surface); color: var(--text-muted); border: 1px solid var(--border); text-decoration: line-through; opacity: 0.6; }
 
-  .sfeer-tag.do {
-    background: color-mix(in srgb, var(--c5) 12%, transparent);
-    color: var(--c5);
-    border: 1px solid color-mix(in srgb, var(--c5) 28%, transparent);
-  }
-
-  .sfeer-tag.dont {
-    background: var(--surface);
-    color: var(--text-muted); border: 1px solid var(--border);
-    text-decoration: line-through; opacity: 0.6;
-  }
-
-  /* ── MODULE 5: VERBALE TOON ── */
   .tone-cards { display: flex; flex-direction: column; gap: 1.5rem; }
-
-  .tone-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg); overflow: hidden;
-  }
-
-  .tone-rule {
-    padding: 1.25rem 1.5rem;
-    border-bottom: 1px solid var(--border);
-    font-size: 14px; color: var(--text-primary);
-    display: flex; align-items: center; gap: 0.75rem;
-  }
-
-  .tone-rule-num {
-    font-size: 10px; letter-spacing: 0.3em;
-    color: var(--text-accent); text-transform: uppercase; flex-shrink: 0;
-  }
-
+  .tone-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+  .tone-rule { padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border); font-size: 14px; color: var(--text-primary); display: flex; align-items: center; gap: 0.75rem; }
+  .tone-rule-num { font-size: 10px; letter-spacing: 0.3em; color: var(--text-accent); text-transform: uppercase; flex-shrink: 0; }
   .tone-examples { display: grid; grid-template-columns: 1fr 1fr; }
-
   .tone-ex { padding: 1rem 1.5rem; font-size: 13px; line-height: 1.6; }
   .tone-ex:first-child { border-right: 1px solid var(--border); }
-
   .tone-ex-label { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 6px; }
-
   .tone-ex.wel  .tone-ex-label { color: var(--text-accent); }
   .tone-ex.niet .tone-ex-label { color: var(--text-muted); }
   .tone-ex.wel  p { color: var(--text-primary); }
   .tone-ex.niet p { color: var(--text-muted); text-decoration: line-through; opacity: 0.6; }
 
-  /* ── MODULE 6: WEBSITE BLUEPRINT ── */
-  .blueprint-intro {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius-lg); padding: 1.5rem 2rem;
-    margin-bottom: 2rem; display: flex; gap: 2rem; align-items: flex-start;
-  }
-
+  .blueprint-intro { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem 2rem; margin-bottom: 2rem; display: flex; gap: 2rem; align-items: flex-start; }
   .blueprint-intro-item { flex: 1; }
-
-  .bpi-label {
-    font-size: 10px; letter-spacing: 0.3em;
-    text-transform: uppercase; color: var(--text-accent); margin-bottom: 6px;
-  }
-
+  .bpi-label { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-accent); margin-bottom: 6px; }
   .bpi-value { font-size: 14px; color: var(--text-primary); }
-
   .wireframe-stack { display: flex; flex-direction: column; gap: 12px; }
-
-  .wf-block {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--text-accent);
-    border-radius: var(--radius-lg);
-    padding: 1.5rem 1.75rem; cursor: pointer;
-    transition: background 0.15s; position: relative;
-  }
-
+  .wf-block { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--text-accent); border-radius: var(--radius-lg); padding: 1.5rem 1.75rem; cursor: pointer; transition: background 0.15s; position: relative; }
   .wf-block:hover { background: var(--surface-2); }
-
   .wf-block-above-fold { min-height: 110px; }
   .wf-block-mid        { min-height: 80px; }
   .wf-block-footer     { min-height: 56px; }
-
-  .wf-block-top {
-    display: flex; justify-content: space-between;
-    align-items: flex-start; gap: 1rem;
-  }
-
+  .wf-block-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
   .wf-block-meta { flex: 1; }
-
-  .wf-pos {
-    font-size: 10px; letter-spacing: 0.3em;
-    text-transform: uppercase; color: var(--text-accent); margin-bottom: 6px;
-  }
-
-  .wf-name {
-    font-family: var(--font-heading);
-    font-size: 1.1rem; color: var(--text-primary);
-    margin-bottom: 4px; line-height: 1.2; font-weight: 300;
-  }
-
+  .wf-pos { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-accent); margin-bottom: 6px; }
+  .wf-name { font-family: var(--font-heading); font-size: 1.1rem; color: var(--text-primary); margin-bottom: 4px; line-height: 1.2; font-weight: 300; }
   .wf-headline { font-size: 13px; color: var(--text-muted); font-style: italic; line-height: 1.5; }
-
-  .wf-cta-chip {
-    display: inline-block; font-size: 11px;
-    padding: 4px 12px;
-    background: color-mix(in srgb, var(--c5) 15%, transparent);
-    color: var(--text-accent);
-    border-radius: 20px;
-    border: 1px solid color-mix(in srgb, var(--c5) 28%, transparent);
-    white-space: nowrap; flex-shrink: 0; align-self: flex-end;
-  }
-
-  .wf-detail {
-    display: none; margin-top: 1rem; padding-top: 1rem;
-    border-top: 1px solid var(--border);
-    font-size: 13px; color: var(--text-muted); line-height: 1.65;
-  }
-
+  .wf-cta-chip { display: inline-block; font-size: 11px; padding: 4px 12px; background: color-mix(in srgb, var(--c5) 15%, transparent); color: var(--text-accent); border-radius: 20px; border: 1px solid color-mix(in srgb, var(--c5) 28%, transparent); white-space: nowrap; flex-shrink: 0; align-self: flex-end; }
+  .wf-detail { display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-muted); line-height: 1.65; }
   .wf-block.open .wf-detail { display: block; }
   .wf-detail strong { color: var(--text-primary); font-weight: 500; }
-
-  .wf-expand-hint {
-    font-size: 10px; letter-spacing: 0.2em;
-    text-transform: uppercase; color: var(--text-muted); opacity: 0.5;
-    position: absolute; bottom: 10px; right: 1.25rem;
-  }
-
+  .wf-expand-hint { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); opacity: 0.5; position: absolute; bottom: 10px; right: 1.25rem; }
   .wf-block.open .wf-expand-hint { display: none; }
 
-  /* ── MODULE 7: TAGLINE LAB ── */
-  .tagline-list {
-    display: flex; flex-direction: column; gap: 1px;
-    background: var(--border); border-radius: var(--radius-lg);
-    overflow: hidden; border: 1px solid var(--border); margin-bottom: 2rem;
-  }
-
-  .tagline-item {
-    background: var(--surface); padding: 1.5rem 2rem;
-    display: flex; align-items: flex-start; gap: 1.5rem;
-    transition: background 0.15s;
-  }
-
+  .tagline-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border); margin-bottom: 2rem; }
+  .tagline-item { background: var(--surface); padding: 1.5rem 2rem; display: flex; align-items: flex-start; gap: 1.5rem; transition: background 0.15s; }
   .tagline-item:hover { background: var(--surface-2); }
-
-  .tagline-item.aanbevolen {
-    background: color-mix(in srgb, var(--c5) 6%, var(--surface));
-    border-left: 3px solid var(--text-accent);
-  }
-
-  .tagline-num {
-    font-size: 10px; letter-spacing: 0.3em;
-    text-transform: uppercase; color: var(--text-accent);
-    padding-top: 3px; flex-shrink: 0; min-width: 32px;
-  }
-
+  .tagline-item.aanbevolen { background: color-mix(in srgb, var(--c5) 6%, var(--surface)); border-left: 3px solid var(--text-accent); }
+  .tagline-num { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-accent); padding-top: 3px; flex-shrink: 0; min-width: 32px; }
   .tagline-body { flex: 1; }
-
-  .tagline-text {
-    font-family: var(--font-heading);
-    font-size: 1.35rem; color: var(--text-primary);
-    margin-bottom: 8px; line-height: 1.2; font-weight: 300;
-  }
-
+  .tagline-text { font-family: var(--font-heading); font-size: 1.35rem; color: var(--text-primary); margin-bottom: 8px; line-height: 1.2; font-weight: 300; }
   .tagline-why { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
-
-  .tagline-badge {
-    font-size: 10px; padding: 3px 10px;
-    background: color-mix(in srgb, var(--c5) 15%, transparent);
-    color: var(--text-accent); border-radius: 20px;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    align-self: flex-start; flex-shrink: 0; margin-top: 4px;
-  }
-
-  .aanbeveling-card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius-lg); padding: 2rem;
-  }
-
-  .aanbeveling-label {
-    font-size: 10px; letter-spacing: 0.3em;
-    text-transform: uppercase; color: var(--text-accent); margin-bottom: 0.75rem;
-  }
-
+  .tagline-badge { font-size: 10px; padding: 3px 10px; background: color-mix(in srgb, var(--c5) 15%, transparent); color: var(--text-accent); border-radius: 20px; letter-spacing: 0.1em; text-transform: uppercase; align-self: flex-start; flex-shrink: 0; margin-top: 4px; }
+  .aanbeveling-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; }
+  .aanbeveling-label { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-accent); margin-bottom: 0.75rem; }
   .aanbeveling-text { font-size: 15px; color: var(--text-primary); line-height: 1.7; }
 
-  /* ── COPYDECK SECTION ── */
-  .copydeck-section {
-    margin-bottom: 5rem;
-    opacity: 0; transform: translateY(24px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-    scroll-margin-top: 100px;
-  }
-
+  .copydeck-section { margin-bottom: 5rem; opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; scroll-margin-top: 100px; }
   .copydeck-section.in-view { opacity: 1; transform: translateY(0); }
 
-  .copy-hero-block {
-    background: linear-gradient(135deg, var(--surface) 0%, color-mix(in srgb, var(--c2) 6%, var(--surface)) 100%);
-    border: 1px solid var(--border); border-radius: var(--radius-lg);
-    padding: 3rem; margin-bottom: 2rem;
-    position: relative; overflow: hidden;
-  }
-
-  .copy-hero-block::after {
-    content: '';
-    position: absolute; bottom: -30px; right: -30px;
-    width: 200px; height: 200px;
-    background: radial-gradient(circle, color-mix(in srgb, var(--c2) 10%, transparent), transparent 70%);
-    pointer-events: none;
-  }
-
-  .copy-hero-headline {
-    font-family: var(--font-heading);
-    font-size: clamp(1.8rem, 4vw, 3rem);
-    font-weight: 300; font-style: italic;
-    color: var(--text-primary); line-height: 1.15; margin-bottom: 1rem;
-  }
-
-  .copy-hero-sub {
-    font-size: 16px; color: var(--text-muted);
-    line-height: 1.6; margin-bottom: 2rem; max-width: 560px;
-  }
-
+  .copy-hero-block { background: linear-gradient(135deg, var(--surface) 0%, color-mix(in srgb, var(--c2) 6%, var(--surface)) 100%); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 3rem; margin-bottom: 2rem; position: relative; overflow: hidden; }
+  .copy-hero-block::after { content: ''; position: absolute; bottom: -30px; right: -30px; width: 200px; height: 200px; background: radial-gradient(circle, color-mix(in srgb, var(--c2) 10%, transparent), transparent 70%); pointer-events: none; }
+  .copy-hero-headline { font-family: var(--font-heading); font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 300; font-style: italic; color: var(--text-primary); line-height: 1.15; margin-bottom: 1rem; }
+  .copy-hero-sub { font-size: 16px; color: var(--text-muted); line-height: 1.6; margin-bottom: 2rem; max-width: 560px; }
   .copy-cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
-
-  .copy-cta-primary {
-    display: inline-block; padding: 10px 24px;
-    background: var(--c5); color: white;
-    border-radius: 30px; font-size: 14px;
-    font-family: var(--font-heading); font-weight: 300;
-    text-decoration: none; letter-spacing: 0.05em;
-    transition: opacity 0.2s;
-  }
-
+  .copy-cta-primary { display: inline-block; padding: 10px 24px; background: var(--c5); color: white; border-radius: 30px; font-size: 14px; font-family: var(--font-heading); font-weight: 300; text-decoration: none; letter-spacing: 0.05em; transition: opacity 0.2s; }
   .copy-cta-primary:hover { opacity: 0.85; }
-
-  .copy-cta-secondary {
-    display: inline-block; padding: 10px 24px;
-    border: 1px solid var(--border); color: var(--text-primary);
-    border-radius: 30px; font-size: 14px;
-    font-family: var(--font-heading); font-weight: 300;
-    text-decoration: none; letter-spacing: 0.05em;
-    transition: background 0.2s;
-  }
-
+  .copy-cta-secondary { display: inline-block; padding: 10px 24px; border: 1px solid var(--border); color: var(--text-primary); border-radius: 30px; font-size: 14px; font-family: var(--font-heading); font-weight: 300; text-decoration: none; letter-spacing: 0.05em; transition: background 0.2s; }
   .copy-cta-secondary:hover { background: var(--surface-2); }
 
   .copy-sections { display: flex; flex-direction: column; gap: 1.5rem; }
-
-  .copy-section-card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius-lg); overflow: hidden;
-  }
-
-  .copy-section-header {
-    padding: 1.25rem 1.75rem; border-bottom: 1px solid var(--border);
-    display: flex; align-items: center; gap: 1rem; cursor: pointer;
-    transition: background 0.15s;
-  }
-
+  .copy-section-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+  .copy-section-header { padding: 1.25rem 1.75rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 1rem; cursor: pointer; transition: background 0.15s; }
   .copy-section-header:hover { background: var(--surface-2); }
-
-  .copy-section-label {
-    font-size: 10px; letter-spacing: 0.3em;
-    text-transform: uppercase; color: var(--text-accent); flex-shrink: 0;
-  }
-
-  .copy-section-name {
-    font-family: var(--font-heading);
-    font-size: 1rem; color: var(--text-primary); font-weight: 300;
-  }
-
+  .copy-section-label { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-accent); flex-shrink: 0; }
+  .copy-section-name { font-family: var(--font-heading); font-size: 1rem; color: var(--text-primary); font-weight: 300; }
   .copy-section-body { padding: 1.75rem; display: none; }
   .copy-section-card.open .copy-section-body { display: block; }
 
   .copy-field { margin-bottom: 1.5rem; }
   .copy-field:last-child { margin-bottom: 0; }
-
-  .copy-field-label {
-    font-size: 10px; letter-spacing: 0.3em;
-    text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem;
-  }
-
-  .copy-field-value {
-    font-size: 14px; color: var(--text-primary); line-height: 1.75;
-    background: color-mix(in srgb, var(--c1) 50%, white 50%);
-    border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 0.75rem 1rem;
-  }
-
-  .copy-field-value.headline {
-    font-family: var(--font-heading); font-size: 1.2rem; font-weight: 300;
-  }
-
+  .copy-field-label { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem; }
+  .copy-field-value { font-size: 14px; color: var(--text-primary); line-height: 1.75; background: color-mix(in srgb, var(--c1) 50%, white 50%); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.75rem 1rem; }
+  .copy-field-value.headline { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 300; }
   .copy-field-value.body-text { white-space: pre-line; }
 
   .copy-bios { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
-
-  .copy-bio-card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius-lg); padding: 2rem;
-  }
-
-  .copy-bio-label {
-    font-size: 10px; letter-spacing: 0.3em;
-    text-transform: uppercase; color: var(--text-accent); margin-bottom: 0.5rem;
-  }
-
-  .copy-bio-use {
-    font-size: 11px; color: var(--text-muted);
-    margin-bottom: 1.25rem; font-style: italic;
-  }
-
+  .copy-bio-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; }
+  .copy-bio-label { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-accent); margin-bottom: 0.5rem; }
+  .copy-bio-use { font-size: 11px; color: var(--text-muted); margin-bottom: 1.25rem; font-style: italic; }
   .copy-bio-text { font-size: 14px; color: var(--text-primary); line-height: 1.8; }
 
-  .copy-meta-card {
-    margin-top: 1.5rem;
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius-lg); padding: 1.5rem 2rem;
-    display: flex; align-items: flex-start; gap: 2rem;
-  }
-
+  .copy-meta-card { margin-top: 1.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem 2rem; display: flex; align-items: flex-start; gap: 2rem; }
   .copy-meta-inner { flex: 1; }
-
-  .copy-meta-count {
-    font-family: var(--font-heading);
-    font-size: 2.5rem; font-weight: 300;
-    color: var(--text-accent); line-height: 1;
-  }
-
-  .copy-meta-label {
-    font-size: 10px; letter-spacing: 0.3em;
-    text-transform: uppercase; color: var(--text-muted);
-    margin-bottom: 0.5rem;
-  }
-
+  .copy-meta-count { font-family: var(--font-heading); font-size: 2.5rem; font-weight: 300; color: var(--text-accent); line-height: 1; }
+  .copy-meta-label { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem; }
   .copy-meta-value { font-size: 14px; color: var(--text-primary); line-height: 1.6; }
 
-  /* ── NEXT STEP ── */
   .next-step-section { border-top: 1px solid var(--border); padding-top: 3rem; }
-
   .next-step-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-
-  .next-card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius-lg); padding: 2rem;
-  }
-
-  .next-card.build {
-    border-color: var(--text-accent);
-    background: color-mix(in srgb, var(--c5) 4%, var(--surface));
-  }
-
-  .next-card-label {
-    font-size: 10px; letter-spacing: 0.3em;
-    text-transform: uppercase; color: var(--text-accent); margin-bottom: 1rem;
-  }
-
+  .next-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; }
+  .next-card.build { border-color: var(--text-accent); background: color-mix(in srgb, var(--c5) 4%, var(--surface)); }
+  .next-card-label { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-accent); margin-bottom: 1rem; }
   .next-card-body { font-size: 14px; color: var(--text-muted); line-height: 1.75; margin-bottom: 0; }
   .next-card.build .next-card-body { margin-bottom: 1.5rem; }
-
-  .next-card-cta {
-    display: inline-block; font-size: 13px; padding: 8px 20px;
-    background: var(--text-accent); color: white;
-    border-radius: 30px; text-decoration: none;
-    font-family: var(--font-heading); letter-spacing: 0.05em;
-    transition: opacity 0.2s;
-  }
-
+  .next-card-cta { display: inline-block; font-size: 13px; padding: 8px 20px; background: var(--text-accent); color: white; border-radius: 30px; text-decoration: none; font-family: var(--font-heading); letter-spacing: 0.05em; transition: opacity 0.2s; }
   .next-card-cta:hover { opacity: 0.85; }
 
-  /* ── FOOTER ── */
-  .vault-footer {
-    border-top: 1px solid var(--border); padding: 3rem 2rem;
-    text-align: center; color: var(--text-muted);
-    font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase;
-  }
-
+  .vault-footer { border-top: 1px solid var(--border); padding: 3rem 2rem; text-align: center; color: var(--text-muted); font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; }
   .vault-footer span { color: var(--text-accent); }
 
-  /* ── ANIMATIONS ── */
-  @keyframes fade-up {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+  @keyframes fade-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-  /* ── RESPONSIVE ── */
   @media (max-width: 640px) {
     .topbar { padding: 0 1rem; height: 42px; }
     .hero { padding: 3rem 1.25rem; min-height: 80vh; }
@@ -812,7 +336,7 @@
 <!-- LOCK SCREEN -->
 <div id="lock-screen" role="main" aria-label="Secure access">
   <p class="lock-logo">S4J4 · Signal Architecture</p>
-  <h1 class="lock-title">KRAFTT Movement<br>Brand OS Vault</h1>
+  <h1 class="lock-title">KRAFTT Movement<br>Resonance.OS</h1>
   <p class="lock-sub">Enter your 6-digit access code</p>
   <div class="pin-container" id="pin-inputs">
     <input class="pin-digit" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 1">
@@ -827,12 +351,11 @@
 </div>
 
 <!-- VAULT -->
-<div id="vault" aria-label="Brand OS Vault">
+<div id="vault" aria-label="Resonance.OS">
 
-  <!-- STICKY HEADER -->
   <header class="site-header">
     <div class="topbar">
-      <span class="topbar-brand">S4J4 · Brand OS Vault</span>
+      <span class="topbar-brand">S4J4 · Resonance.OS</span>
       <span class="topbar-name">KRAFTT Movement</span>
     </div>
     <nav class="module-nav" aria-label="Module navigation">
@@ -848,9 +371,8 @@
     </nav>
   </header>
 
-  <!-- HERO -->
   <section class="hero" aria-label="Intro">
-    <p class="hero-label">Brand OS · 2026-05-13</p>
+    <p class="hero-label">Resonance.OS · 2026-05-13</p>
     <h1 class="hero-name">KRAFTT Movement</h1>
     <p class="hero-tagline">Sweat. Strengthen. Transform.</p>
     <div class="hero-meta">
@@ -860,7 +382,6 @@
     </div>
   </section>
 
-  <!-- MODULES WRAPPER -->
   <div class="modules-wrapper">
 
     <!-- MODULE 1 -->
@@ -916,7 +437,6 @@
       <p class="module-label">Module 04</p>
       <h2 class="module-title">How you look</h2>
       <div class="brand-book-grid">
-
         <div class="bb-card">
           <p class="bb-card-title">Colour Palette</p>
           <div class="color-swatches">
@@ -927,39 +447,13 @@
             <div class="swatch" style="background:#2575FC" title="Effort Blue"></div>
           </div>
           <div class="swatch-info">
-            <div class="swatch-row">
-              <div class="swatch-dot" style="background:#E8E0D5"></div>
-              <span class="swatch-name">Studio Beige</span>
-              <span class="swatch-hex">#E8E0D5</span>
-              <span class="swatch-rol">Primary</span>
-            </div>
-            <div class="swatch-row">
-              <div class="swatch-dot" style="background:#C4724A"></div>
-              <span class="swatch-name">Heat Terracotta</span>
-              <span class="swatch-hex">#C4724A</span>
-              <span class="swatch-rol">Secondary</span>
-            </div>
-            <div class="swatch-row">
-              <div class="swatch-dot" style="background:#3D3B38"></div>
-              <span class="swatch-name">Prenzlauer Concrete</span>
-              <span class="swatch-hex">#3D3B38</span>
-              <span class="swatch-rol">Tertiary</span>
-            </div>
-            <div class="swatch-row">
-              <div class="swatch-dot" style="background:#F4EFE8"></div>
-              <span class="swatch-name">Warm Fog</span>
-              <span class="swatch-hex">#F4EFE8</span>
-              <span class="swatch-rol">Light</span>
-            </div>
-            <div class="swatch-row">
-              <div class="swatch-dot" style="background:#2575FC"></div>
-              <span class="swatch-name">Effort Blue</span>
-              <span class="swatch-hex">#2575FC</span>
-              <span class="swatch-rol">Accent</span>
-            </div>
+            <div class="swatch-row"><div class="swatch-dot" style="background:#E8E0D5"></div><span class="swatch-name">Studio Beige</span><span class="swatch-hex">#E8E0D5</span><span class="swatch-rol">Primary</span></div>
+            <div class="swatch-row"><div class="swatch-dot" style="background:#C4724A"></div><span class="swatch-name">Heat Terracotta</span><span class="swatch-hex">#C4724A</span><span class="swatch-rol">Secondary</span></div>
+            <div class="swatch-row"><div class="swatch-dot" style="background:#3D3B38"></div><span class="swatch-name">Prenzlauer Concrete</span><span class="swatch-hex">#3D3B38</span><span class="swatch-rol">Tertiary</span></div>
+            <div class="swatch-row"><div class="swatch-dot" style="background:#F4EFE8"></div><span class="swatch-name">Warm Fog</span><span class="swatch-hex">#F4EFE8</span><span class="swatch-rol">Light</span></div>
+            <div class="swatch-row"><div class="swatch-dot" style="background:#2575FC"></div><span class="swatch-name">Effort Blue</span><span class="swatch-hex">#2575FC</span><span class="swatch-rol">Accent</span></div>
           </div>
         </div>
-
         <div class="bb-card">
           <p class="bb-card-title">Typography</p>
           <div class="font-pair">
@@ -973,7 +467,6 @@
             </div>
           </div>
         </div>
-
         <div class="bb-card" style="grid-column: 1 / -1;">
           <p class="bb-card-title">Mood Words</p>
           <div class="sfeer-grid">
@@ -995,7 +488,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -1004,58 +496,27 @@
       <p class="module-label">Module 05</p>
       <h2 class="module-title">How you sound</h2>
       <div class="tone-cards">
-
         <div class="tone-card">
-          <div class="tone-rule">
-            <span class="tone-rule-num">Rule 01</span>
-            <span>Write the way the method works — direct, specific, no cushioning.</span>
-          </div>
+          <div class="tone-rule"><span class="tone-rule-num">Rule 01</span><span>Write the way the method works — direct, specific, no cushioning.</span></div>
           <div class="tone-examples">
-            <div class="tone-ex wel">
-              <p class="tone-ex-label">Do</p>
-              <p>The heat is not a feature. It's a decision about what you're willing to feel.</p>
-            </div>
-            <div class="tone-ex niet">
-              <p class="tone-ex-label">Don't</p>
-              <p>We believe in the transformative power of heat-based wellness.</p>
-            </div>
+            <div class="tone-ex wel"><p class="tone-ex-label">Do</p><p>The heat is not a feature. It's a decision about what you're willing to feel.</p></div>
+            <div class="tone-ex niet"><p class="tone-ex-label">Don't</p><p>We believe in the transformative power of heat-based wellness.</p></div>
           </div>
         </div>
-
         <div class="tone-card">
-          <div class="tone-rule">
-            <span class="tone-rule-num">Rule 02</span>
-            <span>Name what actually happens in the body or in the room — not what it "means" or "represents".</span>
-          </div>
+          <div class="tone-rule"><span class="tone-rule-num">Rule 02</span><span>Name what actually happens in the body or in the room — not what it "means" or "represents".</span></div>
           <div class="tone-examples">
-            <div class="tone-ex wel">
-              <p class="tone-ex-label">Do</p>
-              <p>At minute 20, something shifts. The heat stops being the problem and becomes the conditions.</p>
-            </div>
-            <div class="tone-ex niet">
-              <p class="tone-ex-label">Don't</p>
-              <p>Our unique approach creates a holistic mind-body experience.</p>
-            </div>
+            <div class="tone-ex wel"><p class="tone-ex-label">Do</p><p>At minute 20, something shifts. The heat stops being the problem and becomes the conditions.</p></div>
+            <div class="tone-ex niet"><p class="tone-ex-label">Don't</p><p>Our unique approach creates a holistic mind-body experience.</p></div>
           </div>
         </div>
-
         <div class="tone-card">
-          <div class="tone-rule">
-            <span class="tone-rule-num">Rule 03</span>
-            <span>Earn trust by drawing the line clearly — say what this is not as readily as what it is.</span>
-          </div>
+          <div class="tone-rule"><span class="tone-rule-num">Rule 03</span><span>Earn trust by drawing the line clearly — say what this is not as readily as what it is.</span></div>
           <div class="tone-examples">
-            <div class="tone-ex wel">
-              <p class="tone-ex-label">Do</p>
-              <p>This is not rehabilitation. This is not weight loss. This is strength, built from the inside.</p>
-            </div>
-            <div class="tone-ex niet">
-              <p class="tone-ex-label">Don't</p>
-              <p>Suitable for all levels and fitness backgrounds.</p>
-            </div>
+            <div class="tone-ex wel"><p class="tone-ex-label">Do</p><p>This is not rehabilitation. This is not weight loss. This is strength, built from the inside.</p></div>
+            <div class="tone-ex niet"><p class="tone-ex-label">Don't</p><p>Suitable for all levels and fitness backgrounds.</p></div>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -1063,110 +524,36 @@
     <section id="m6" class="module-section">
       <p class="module-label">Module 06</p>
       <h2 class="module-title">How your website works</h2>
-
       <div class="blueprint-intro">
-        <div class="blueprint-intro-item">
-          <p class="bpi-label">Primary goal</p>
-          <p class="bpi-value">Clients</p>
-        </div>
-        <div class="blueprint-intro-item" style="flex: 2;">
-          <p class="bpi-label">Conversion logic</p>
-          <p class="bpi-value">The visitor should finish reading feeling like they've already been understood — and that the only thing left is to book the trial session to confirm what they already sense is true.</p>
-        </div>
+        <div class="blueprint-intro-item"><p class="bpi-label">Primary goal</p><p class="bpi-value">Clients</p></div>
+        <div class="blueprint-intro-item" style="flex: 2;"><p class="bpi-label">Conversion logic</p><p class="bpi-value">The visitor should finish reading feeling like they've already been understood — and that the only thing left is to book the trial session to confirm what they already sense is true.</p></div>
       </div>
-
       <div class="wireframe-stack">
-
         <div class="wf-block wf-block-above-fold" onclick="this.classList.toggle('open')">
-          <div class="wf-block-top">
-            <div class="wf-block-meta">
-              <p class="wf-pos">Above fold</p>
-              <h3 class="wf-name">Hero</h3>
-              <p class="wf-headline">"Your body is stronger than you think."</p>
-            </div>
-            <span class="wf-cta-chip">Book a trial session</span>
-          </div>
-          <div class="wf-detail">
-            <strong>Conversion role:</strong> Create immediate recognition: the visitor sees themselves in the problem the studio was built to solve.<br><br>
-            <strong>Subheading:</strong> Pilates-based strength training at 45 degrees. Prenzlauer Berg, Berlin.<br><br>
-            <strong>Body instruction:</strong> One sentence that names the gap KRAFTT fills — between studios that are too soft and gyms that skip alignment. No promises, no welcome copy. Drop them into the room.<br><br>
-            <strong>UX note:</strong> Hero image or video should show heat environment — steam, skin, effort. Not posed fitness photography.
-          </div>
+          <div class="wf-block-top"><div class="wf-block-meta"><p class="wf-pos">Above fold</p><h3 class="wf-name">Hero</h3><p class="wf-headline">"Your body is stronger than you think."</p></div><span class="wf-cta-chip">Book a trial session</span></div>
+          <div class="wf-detail"><strong>Conversion role:</strong> Create immediate recognition: the visitor sees themselves in the problem the studio was built to solve.<br><br><strong>Subheading:</strong> Pilates-based strength training at 45 degrees. Prenzlauer Berg, Berlin.<br><br><strong>Body instruction:</strong> One sentence that names the gap KRAFTT fills — between studios that are too soft and gyms that skip alignment. No promises, no welcome copy. Drop them into the room.<br><br><strong>UX note:</strong> Hero image or video should show heat environment — steam, skin, effort. Not posed fitness photography.</div>
           <span class="wf-expand-hint">↓ expand</span>
         </div>
-
         <div class="wf-block wf-block-mid" onclick="this.classList.toggle('open')">
-          <div class="wf-block-top">
-            <div class="wf-block-meta">
-              <p class="wf-pos">Early</p>
-              <h3 class="wf-name">The Problem</h3>
-              <p class="wf-headline">"Most classes ask too little."</p>
-            </div>
-            <span class="wf-cta-chip">No CTA</span>
-          </div>
-          <div class="wf-detail">
-            <strong>Conversion role:</strong> The visitor feels correctly diagnosed — "this studio gets why I stopped going to other places."<br><br>
-            <strong>Subheading:</strong> Reformer Pilates got beautiful. CrossFit got loud. Neither got honest.<br><br>
-            <strong>Body instruction:</strong> Name the two failure modes of the current market (soft Pilates that doesn't build strength; high-intensity gym work that ignores alignment) and position KRAFTT as the refusal to choose between them.<br><br>
-            <strong>UX note:</strong> No CTA here — let the diagnosis land before asking for anything.
-          </div>
+          <div class="wf-block-top"><div class="wf-block-meta"><p class="wf-pos">Early</p><h3 class="wf-name">The Problem</h3><p class="wf-headline">"Most classes ask too little."</p></div><span class="wf-cta-chip">No CTA</span></div>
+          <div class="wf-detail"><strong>Conversion role:</strong> The visitor feels correctly diagnosed — "this studio gets why I stopped going to other places."<br><br><strong>Subheading:</strong> Reformer Pilates got beautiful. CrossFit got loud. Neither got honest.<br><br><strong>Body instruction:</strong> Name the two failure modes of the current market (soft Pilates that doesn't build strength; high-intensity gym work that ignores alignment) and position KRAFTT as the refusal to choose between them.<br><br><strong>UX note:</strong> No CTA here — let the diagnosis land before asking for anything.</div>
           <span class="wf-expand-hint">↓ expand</span>
         </div>
-
         <div class="wf-block wf-block-mid" onclick="this.classList.toggle('open')">
-          <div class="wf-block-top">
-            <div class="wf-block-meta">
-              <p class="wf-pos">Mid</p>
-              <h3 class="wf-name">The Method</h3>
-              <p class="wf-headline">"Alignment and strength. At 45 degrees."</p>
-            </div>
-            <span class="wf-cta-chip">See what a class looks like</span>
-          </div>
-          <div class="wf-detail">
-            <strong>Conversion role:</strong> Visitor understands what KRAFTT actually is — curiosity converts to specific interest.<br><br>
-            <strong>Subheading:</strong> Not two things. One method. The heat is not decorative.<br><br>
-            <strong>Body instruction:</strong> Explain the KRAFTT Method in concrete terms: what happens in a session, why heat is a deliberate tool, what the physiological logic is. Reference sports science without academic language.<br><br>
-            <strong>UX note:</strong> Consider a 3-column breakdown: Pilates foundation / Strength work / Heat as tool — short, specific, no icons.
-          </div>
+          <div class="wf-block-top"><div class="wf-block-meta"><p class="wf-pos">Mid</p><h3 class="wf-name">The Method</h3><p class="wf-headline">"Alignment and strength. At 45 degrees."</p></div><span class="wf-cta-chip">See what a class looks like</span></div>
+          <div class="wf-detail"><strong>Conversion role:</strong> Visitor understands what KRAFTT actually is — curiosity converts to specific interest.<br><br><strong>Subheading:</strong> Not two things. One method. The heat is not decorative.<br><br><strong>Body instruction:</strong> Explain the KRAFTT Method in concrete terms: what happens in a session, why heat is a deliberate tool, what the physiological logic is. Reference sports science without academic language.<br><br><strong>UX note:</strong> Consider a 3-column breakdown: Pilates foundation / Strength work / Heat as tool — short, specific, no icons.</div>
           <span class="wf-expand-hint">↓ expand</span>
         </div>
-
         <div class="wf-block wf-block-mid" onclick="this.classList.toggle('open')">
-          <div class="wf-block-top">
-            <div class="wf-block-meta">
-              <p class="wf-pos">Late</p>
-              <h3 class="wf-name">Social Proof</h3>
-              <p class="wf-headline">"They walked in skeptical."</p>
-            </div>
-            <span class="wf-cta-chip">Book your trial</span>
-          </div>
-          <div class="wf-detail">
-            <strong>Conversion role:</strong> Visitor moves from interested to convinced — they see their own future experience in someone else's words.<br><br>
-            <strong>Subheading:</strong> After class, they booked the next one.<br><br>
-            <strong>Body instruction:</strong> 2–3 testimonials that reference the specific experience: the heat, the first 20 minutes, the shift. Avoid generic "great instructor" quotes. Placeholder installed — collect from first 3 trial clients.<br><br>
-            <strong>UX note:</strong> CTA immediately after testimonials — lowest friction point on the page.
-          </div>
+          <div class="wf-block-top"><div class="wf-block-meta"><p class="wf-pos">Late</p><h3 class="wf-name">Social Proof</h3><p class="wf-headline">"They walked in skeptical."</p></div><span class="wf-cta-chip">Book your trial</span></div>
+          <div class="wf-detail"><strong>Conversion role:</strong> Visitor moves from interested to convinced — they see their own future experience in someone else's words.<br><br><strong>Subheading:</strong> After class, they booked the next one.<br><br><strong>Body instruction:</strong> 2–3 testimonials that reference the specific experience: the heat, the first 20 minutes, the shift. Avoid generic "great instructor" quotes. Placeholder installed — collect from first 3 trial clients.<br><br><strong>UX note:</strong> CTA immediately after testimonials — lowest friction point on the page.</div>
           <span class="wf-expand-hint">↓ expand</span>
         </div>
-
         <div class="wf-block wf-block-footer" onclick="this.classList.toggle('open')">
-          <div class="wf-block-top">
-            <div class="wf-block-meta">
-              <p class="wf-pos">Footer-adjacent</p>
-              <h3 class="wf-name">Contact / Booking</h3>
-              <p class="wf-headline">"The only way to know is proof."</p>
-            </div>
-            <span class="wf-cta-chip">Book a trial session</span>
-          </div>
-          <div class="wf-detail">
-            <strong>Conversion role:</strong> Remove all remaining friction — the visitor knows exactly what to do, what to expect, and that the first step is low-stakes.<br><br>
-            <strong>Subheading:</strong> Greifswalder Str. 223, 10405 Berlin · Prenzlauer Berg<br><br>
-            <strong>Body instruction:</strong> Trial session framing: what it includes, how long, what it costs, what to bring. Acknowledge the heat upfront — don't hide it.<br><br>
-            <strong>UX note:</strong> Include Google Maps embed or link. Studio address is brand-relevant — use it explicitly.
-          </div>
+          <div class="wf-block-top"><div class="wf-block-meta"><p class="wf-pos">Footer-adjacent</p><h3 class="wf-name">Contact / Booking</h3><p class="wf-headline">"The only way to know is proof."</p></div><span class="wf-cta-chip">Book a trial session</span></div>
+          <div class="wf-detail"><strong>Conversion role:</strong> Remove all remaining friction — the visitor knows exactly what to do, what to expect, and that the first step is low-stakes.<br><br><strong>Subheading:</strong> Greifswalder Str. 223, 10405 Berlin · Prenzlauer Berg<br><br><strong>Body instruction:</strong> Trial session framing: what it includes, how long, what it costs, what to bring. Acknowledge the heat upfront — don't hide it.<br><br><strong>UX note:</strong> Include Google Maps embed or link. Studio address is brand-relevant — use it explicitly.</div>
           <span class="wf-expand-hint">↓ expand</span>
         </div>
-
       </div>
     </section>
 
@@ -1175,48 +562,11 @@
       <p class="module-label">Module 07</p>
       <h2 class="module-title">How you summarise yourself</h2>
       <div class="tagline-list">
-
-        <div class="tagline-item">
-          <span class="tagline-num">01</span>
-          <div class="tagline-body">
-            <p class="tagline-text">Proof lives in the body.</p>
-            <p class="tagline-why">KRAFTT Movement's entire philosophy — "Not theory. Proof." — collapsed into five words that land as a statement and a dare simultaneously.</p>
-          </div>
-        </div>
-
-        <div class="tagline-item">
-          <span class="tagline-num">02</span>
-          <div class="tagline-body">
-            <p class="tagline-text">Heat is not the point. Almost.</p>
-            <p class="tagline-why">Disarms the obvious question about the 45-degree format with honesty and wit — the kind of voice that signals this studio won't waste your time.</p>
-          </div>
-        </div>
-
-        <div class="tagline-item">
-          <span class="tagline-num">03</span>
-          <div class="tagline-body">
-            <p class="tagline-text">Strength built from understanding.</p>
-            <p class="tagline-why">Positions KRAFTT's differentiation without naming competitors — implies all the studios that skip the "why" of the body in favour of just pushing harder.</p>
-          </div>
-        </div>
-
-        <div class="tagline-item">
-          <span class="tagline-num">04</span>
-          <div class="tagline-body">
-            <p class="tagline-text">One hour that actually counts.</p>
-            <p class="tagline-why">Speaks directly to KRAFTT Movement's target client — the busy Berlin 28–40 who wants return on time, not a lifestyle product.</p>
-          </div>
-        </div>
-
-        <div class="tagline-item aanbevolen">
-          <span class="tagline-num">05</span>
-          <div class="tagline-body">
-            <p class="tagline-text">Sweat. Strengthen. Transform.</p>
-            <p class="tagline-why">Literally from KRAFTT Movement's own words. Three imperatives that build in escalating intensity — sweat is the entry point, transform is the earned outcome, and the rhythm is clean enough to live on a wall, a shirt, or a booking page.</p>
-          </div>
-          <span class="tagline-badge">Recommended</span>
-        </div>
-
+        <div class="tagline-item"><span class="tagline-num">01</span><div class="tagline-body"><p class="tagline-text">Proof lives in the body.</p><p class="tagline-why">KRAFTT Movement's entire philosophy — "Not theory. Proof." — collapsed into five words that land as a statement and a dare simultaneously.</p></div></div>
+        <div class="tagline-item"><span class="tagline-num">02</span><div class="tagline-body"><p class="tagline-text">Heat is not the point. Almost.</p><p class="tagline-why">Disarms the obvious question about the 45-degree format with honesty and wit — the kind of voice that signals this studio won't waste your time.</p></div></div>
+        <div class="tagline-item"><span class="tagline-num">03</span><div class="tagline-body"><p class="tagline-text">Strength built from understanding.</p><p class="tagline-why">Positions KRAFTT's differentiation without naming competitors — implies all the studios that skip the "why" of the body in favour of just pushing harder.</p></div></div>
+        <div class="tagline-item"><span class="tagline-num">04</span><div class="tagline-body"><p class="tagline-text">One hour that actually counts.</p><p class="tagline-why">Speaks directly to KRAFTT Movement's target client — the busy Berlin 28–40 who wants return on time, not a lifestyle product.</p></div></div>
+        <div class="tagline-item aanbevolen"><span class="tagline-num">05</span><div class="tagline-body"><p class="tagline-text">Sweat. Strengthen. Transform.</p><p class="tagline-why">Literally from KRAFTT Movement's own words. Three imperatives that build in escalating intensity — sweat is the entry point, transform is the earned outcome, and the rhythm is clean enough to live on a wall, a shirt, or a booking page.</p></div><span class="tagline-badge">Recommended</span></div>
       </div>
       <div class="aanbeveling-card">
         <p class="aanbeveling-label">S4J4 Recommendation</p>
@@ -1229,7 +579,6 @@
       <p class="module-label">Module 08</p>
       <h2 class="module-title">Your website copy</h2>
 
-      <!-- HERO COPY -->
       <div class="copy-hero-block">
         <p style="font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--text-accent);margin-bottom:1rem;">Hero Section</p>
         <p class="copy-hero-headline">Your body is stronger than you think.</p>
@@ -1240,114 +589,50 @@
         </div>
       </div>
 
-      <!-- PAGE SECTIONS -->
       <div class="copy-sections">
-
         <div class="copy-section-card">
-          <div class="copy-section-header" onclick="this.parentElement.classList.toggle('open')">
-            <span class="copy-section-label">Section 01</span>
-            <span class="copy-section-name">The Problem</span>
-          </div>
+          <div class="copy-section-header" onclick="this.parentElement.classList.toggle('open')"><span class="copy-section-label">Section 01</span><span class="copy-section-name">The Problem</span></div>
           <div class="copy-section-body">
-            <div class="copy-field">
-              <p class="copy-field-label">Headline</p>
-              <p class="copy-field-value headline">Most classes ask too little.</p>
-            </div>
-            <div class="copy-field">
-              <p class="copy-field-label">Subheading</p>
-              <p class="copy-field-value">Reformer Pilates got beautiful. CrossFit got loud. Neither got honest.</p>
-            </div>
-            <div class="copy-field">
-              <p class="copy-field-label">Body</p>
-              <p class="copy-field-value body-text">Somewhere along the way, Pilates became a vibe. Soft lighting, careful cues, nobody sweating. And at the other end: gyms that push hard but skip the question of whether you're actually moving well. KRAFTT was built for everyone who tried both and felt let down by both. The conviction here is simple: alignment and strength aren't two different goals for two different kinds of people. They belong in the same room. At the same time.</p>
-            </div>
+            <div class="copy-field"><p class="copy-field-label">Headline</p><p class="copy-field-value headline">Most classes ask too little.</p></div>
+            <div class="copy-field"><p class="copy-field-label">Subheading</p><p class="copy-field-value">Reformer Pilates got beautiful. CrossFit got loud. Neither got honest.</p></div>
+            <div class="copy-field"><p class="copy-field-label">Body</p><p class="copy-field-value body-text">Somewhere along the way, Pilates became a vibe. Soft lighting, careful cues, nobody sweating. And at the other end: gyms that push hard but skip the question of whether you're actually moving well. KRAFTT was built for everyone who tried both and felt let down by both. The conviction here is simple: alignment and strength aren't two different goals for two different kinds of people. They belong in the same room. At the same time.</p></div>
           </div>
         </div>
-
         <div class="copy-section-card">
-          <div class="copy-section-header" onclick="this.parentElement.classList.toggle('open')">
-            <span class="copy-section-label">Section 02</span>
-            <span class="copy-section-name">The Method</span>
-          </div>
+          <div class="copy-section-header" onclick="this.parentElement.classList.toggle('open')"><span class="copy-section-label">Section 02</span><span class="copy-section-name">The Method</span></div>
           <div class="copy-section-body">
-            <div class="copy-field">
-              <p class="copy-field-label">Headline</p>
-              <p class="copy-field-value headline">Alignment and strength. At 45 degrees.</p>
-            </div>
-            <div class="copy-field">
-              <p class="copy-field-label">Subheading</p>
-              <p class="copy-field-value">Not two things. One method. The heat is not decorative.</p>
-            </div>
-            <div class="copy-field">
-              <p class="copy-field-label">Body</p>
-              <p class="copy-field-value body-text">The KRAFTT Method builds on Pilates foundations — precise movement, spinal awareness, the tension-release logic your body already understands — and layers real strength work on top. Not modified. Not softened. The 45-degree environment isn't a trend or a selling point. Heat changes how muscles respond. It accelerates the moment where effort becomes understanding. Most people feel it around minute 20: something shifts. The heat stops being the obstacle and becomes the conditions. That's where the work actually happens.</p>
-            </div>
-            <div class="copy-field">
-              <p class="copy-field-label">CTA</p>
-              <p class="copy-field-value">See what a class looks like</p>
-            </div>
+            <div class="copy-field"><p class="copy-field-label">Headline</p><p class="copy-field-value headline">Alignment and strength. At 45 degrees.</p></div>
+            <div class="copy-field"><p class="copy-field-label">Subheading</p><p class="copy-field-value">Not two things. One method. The heat is not decorative.</p></div>
+            <div class="copy-field"><p class="copy-field-label">Body</p><p class="copy-field-value body-text">The KRAFTT Method builds on Pilates foundations — precise movement, spinal awareness, the tension-release logic your body already understands — and layers real strength work on top. Not modified. Not softened. The 45-degree environment isn't a trend or a selling point. Heat changes how muscles respond. It accelerates the moment where effort becomes understanding. Most people feel it around minute 20: something shifts. The heat stops being the obstacle and becomes the conditions. That's where the work actually happens.</p></div>
+            <div class="copy-field"><p class="copy-field-label">CTA</p><p class="copy-field-value">See what a class looks like</p></div>
           </div>
         </div>
-
         <div class="copy-section-card">
-          <div class="copy-section-header" onclick="this.parentElement.classList.toggle('open')">
-            <span class="copy-section-label">Section 03</span>
-            <span class="copy-section-name">Social Proof</span>
-          </div>
+          <div class="copy-section-header" onclick="this.parentElement.classList.toggle('open')"><span class="copy-section-label">Section 03</span><span class="copy-section-name">Social Proof</span></div>
           <div class="copy-section-body">
-            <div class="copy-field">
-              <p class="copy-field-label">Headline</p>
-              <p class="copy-field-value headline">They walked in skeptical.</p>
-            </div>
-            <div class="copy-field">
-              <p class="copy-field-label">Subheading</p>
-              <p class="copy-field-value">After class, they booked the next one.</p>
-            </div>
-            <div class="copy-field">
-              <p class="copy-field-label">Body · Testimonial Placeholders</p>
-              <p class="copy-field-value body-text">[ Testimonial 01 — Ask: "What happened around minute 20? When did the heat stop feeling like the problem?" ]
+            <div class="copy-field"><p class="copy-field-label">Headline</p><p class="copy-field-value headline">They walked in skeptical.</p></div>
+            <div class="copy-field"><p class="copy-field-label">Subheading</p><p class="copy-field-value">After class, they booked the next one.</p></div>
+            <div class="copy-field"><p class="copy-field-label">Body · Testimonial Placeholders</p><p class="copy-field-value body-text">[ Testimonial 01 — Ask: "What happened around minute 20? When did the heat stop feeling like the problem?" ]
 
 [ Testimonial 02 — Ask: "You do Pilates. What surprised you about how KRAFTT handles it differently?" ]
 
 [ Testimonial 03 — Ask: "You have one hour. What did it feel like to spend it here?" ]
 
-Note: Collect from first 3 trial clients. These questions will pull exactly the right language.</p>
-            </div>
-            <div class="copy-field">
-              <p class="copy-field-label">CTA</p>
-              <p class="copy-field-value">Book your trial</p>
-            </div>
+Note: Collect from first 3 trial clients. These questions will pull exactly the right language.</p></div>
+            <div class="copy-field"><p class="copy-field-label">CTA</p><p class="copy-field-value">Book your trial</p></div>
           </div>
         </div>
-
         <div class="copy-section-card">
-          <div class="copy-section-header" onclick="this.parentElement.classList.toggle('open')">
-            <span class="copy-section-label">Section 04</span>
-            <span class="copy-section-name">Contact / Booking</span>
-          </div>
+          <div class="copy-section-header" onclick="this.parentElement.classList.toggle('open')"><span class="copy-section-label">Section 04</span><span class="copy-section-name">Contact / Booking</span></div>
           <div class="copy-section-body">
-            <div class="copy-field">
-              <p class="copy-field-label">Headline</p>
-              <p class="copy-field-value headline">The only way to know is proof.</p>
-            </div>
-            <div class="copy-field">
-              <p class="copy-field-label">Subheading</p>
-              <p class="copy-field-value">Greifswalder Str. 223, 10405 Berlin · Prenzlauer Berg</p>
-            </div>
-            <div class="copy-field">
-              <p class="copy-field-label">Body</p>
-              <p class="copy-field-value body-text">The trial session is 60 minutes. You'll work through a full KRAFTT class — Pilates-based strength training at 45 degrees — with instruction on how to read your body in the heat. Come hydrated. Wear something you can move in. The room will be warm before you walk in. That's the point. If it's your first time in a heated studio, say so when you book — the class can accommodate. The method doesn't hide what it is.</p>
-            </div>
-            <div class="copy-field">
-              <p class="copy-field-label">CTA</p>
-              <p class="copy-field-value">Book a trial session</p>
-            </div>
+            <div class="copy-field"><p class="copy-field-label">Headline</p><p class="copy-field-value headline">The only way to know is proof.</p></div>
+            <div class="copy-field"><p class="copy-field-label">Subheading</p><p class="copy-field-value">Greifswalder Str. 223, 10405 Berlin · Prenzlauer Berg</p></div>
+            <div class="copy-field"><p class="copy-field-label">Body</p><p class="copy-field-value body-text">The trial session is 60 minutes. You'll work through a full KRAFTT class — Pilates-based strength training at 45 degrees — with instruction on how to read your body in the heat. Come hydrated. Wear something you can move in. The room will be warm before you walk in. That's the point. If it's your first time in a heated studio, say so when you book — the class can accommodate. The method doesn't hide what it is.</p></div>
+            <div class="copy-field"><p class="copy-field-label">CTA</p><p class="copy-field-value">Book a trial session</p></div>
           </div>
         </div>
-
       </div>
 
-      <!-- BIOS -->
       <div class="copy-bios">
         <div class="copy-bio-card">
           <p class="copy-bio-label">Short Bio</p>
@@ -1361,7 +646,6 @@ Note: Collect from first 3 trial clients. These questions will pull exactly the 
         </div>
       </div>
 
-      <!-- META -->
       <div class="copy-meta-card">
         <div class="copy-meta-inner">
           <p class="copy-meta-label">SEO Meta Description</p>
@@ -1372,7 +656,6 @@ Note: Collect from first 3 trial clients. These questions will pull exactly the 
           <p class="copy-meta-count">141</p>
         </div>
       </div>
-
     </section>
 
     <!-- NEXT STEP -->
@@ -1382,23 +665,23 @@ Note: Collect from first 3 trial clients. These questions will pull exactly the 
       <div class="next-step-grid">
         <div class="next-card self">
           <p class="next-card-label">I'll take it from here</p>
-          <p class="next-card-body">Your Brand OS is your brief. Use the Website Blueprint and Copydeck to rewrite your own site, or hand both to a designer — without spending an hour explaining who you are.</p>
+          <p class="next-card-body">Your Resonance.OS is your brief. Use the Website Blueprint and Copydeck to rewrite your own site, or hand both to a designer — without spending an hour explaining who you are.</p>
         </div>
         <div class="next-card build">
           <p class="next-card-label">Build it with S4J4</p>
-          <p class="next-card-body">Your Brand OS is the foundation. S4J4 builds directly on it — no extra intake, no guesswork. The €247 is credited toward the project.</p>
+          <p class="next-card-body">Your Resonance.OS is the foundation. S4J4 builds directly on it — no extra intake, no guesswork. The €247 is credited toward the project.</p>
           <a href="https://s4j4.com/resonance-built" class="next-card-cta" target="_blank">Turn this into a website →</a>
         </div>
       </div>
     </section>
 
-  </div><!-- /modules-wrapper -->
+  </div>
 
   <footer class="vault-footer">
     <p><span>Signal Architecture · By S4J4</span> · 2026-05-13</p>
   </footer>
 
-</div><!-- /vault -->
+</div>
 
 <script>
 (function() {
@@ -1408,7 +691,6 @@ Note: Collect from first 3 trial clients. These questions will pull exactly the 
   const inputs = document.querySelectorAll('.pin-digit');
   const errorEl = document.getElementById('pin-error');
 
-  // Defined early so auto-unlock param block can call it
   function checkCode() {
     const entered = Array.from(inputs).map(function(i) { return i.value; }).join('');
     if (entered.length < 6) return;
@@ -1422,13 +704,10 @@ Note: Collect from first 3 trial clients. These questions will pull exactly the 
     }
   }
 
-  // Auto-unlock from URL query param ?code=XXXXXX
   const urlParams = new URLSearchParams(window.location.search);
   const paramCode = urlParams.get('code');
   if (paramCode && paramCode.length === 6) {
-    paramCode.split('').forEach(function(ch, i) {
-      if (inputs[i]) inputs[i].value = ch;
-    });
+    paramCode.split('').forEach(function(ch, i) { if (inputs[i]) inputs[i].value = ch; });
     checkCode();
   }
 
@@ -1439,14 +718,9 @@ Note: Collect from first 3 trial clients. These questions will pull exactly the 
       if (val && i < inputs.length - 1) inputs[i + 1].focus();
       checkCode();
     });
-
     input.addEventListener('keydown', function(e) {
-      if (e.key === 'Backspace' && !input.value && i > 0) {
-        inputs[i - 1].focus();
-        inputs[i - 1].value = '';
-      }
+      if (e.key === 'Backspace' && !input.value && i > 0) { inputs[i - 1].focus(); inputs[i - 1].value = ''; }
     });
-
     input.addEventListener('paste', function(e) {
       e.preventDefault();
       const pasted = (e.clipboardData || window.clipboardData).getData('text').replace(/\D/g, '');
@@ -1472,9 +746,7 @@ Note: Collect from first 3 trial clients. These questions will pull exactly the 
   function initVault() {
     const allSections = document.querySelectorAll('.module-section, .copydeck-section');
     const observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) entry.target.classList.add('in-view');
-      });
+      entries.forEach(function(entry) { if (entry.isIntersecting) entry.target.classList.add('in-view'); });
     }, { threshold: 0.06 });
 
     allSections.forEach(function(s) { observer.observe(s); });
@@ -1487,18 +759,13 @@ Note: Collect from first 3 trial clients. These questions will pull exactly the 
         const isActive = item.getAttribute('href') === '#' + id;
         item.classList.toggle('active', isActive);
         if (isActive) {
-          nav.scrollTo({
-            left: item.offsetLeft - (nav.offsetWidth / 2) + (item.offsetWidth / 2),
-            behavior: 'smooth'
-          });
+          nav.scrollTo({ left: item.offsetLeft - (nav.offsetWidth / 2) + (item.offsetWidth / 2), behavior: 'smooth' });
         }
       });
     }
 
     const navObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) setActiveNav(entry.target.id);
-      });
+      entries.forEach(function(entry) { if (entry.isIntersecting) setActiveNav(entry.target.id); });
     }, { rootMargin: '-96px 0px -50% 0px' });
 
     allSections.forEach(function(s) { navObserver.observe(s); });
